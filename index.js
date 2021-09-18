@@ -5,6 +5,13 @@ const path = require("path");
 
 app.listen(3000, () => console.log("Server started on port 3000"));
 
+// Create connection to database
+const db = require("./config/db");
+
+db.authenticate()
+    .then(() => console.log("Database connected"))
+    .catch(err => console.log("Error: " + err));
+
 //Enable Pug
 app.set("view engine", "pug");
 
