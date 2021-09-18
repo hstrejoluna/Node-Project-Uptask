@@ -23,7 +23,8 @@ exports.newProject = async (req, res) => {
       errors,
     });
   } else {
-    const project = await Projects.create({ name });
+    const url = slug(name).toLowerCase();
+    const project = await Projects.create({ name, url });
     res.redirect("/");
   }
 };
