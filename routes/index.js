@@ -6,9 +6,7 @@ const projectsController = require("../controllers/projectsController");
 module.exports = function () {
   router.get("/", projectsController.projectHome);
 
-  router.get("/about", function (req, res) {
-    res.send("About");
-  });
+  router.get("/about", projectsController.about);
 
   return router;
 };
