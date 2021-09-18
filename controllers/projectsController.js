@@ -3,7 +3,7 @@ exports.projectHome = (req, res) => {
 };
 
 exports.formProject = (req, res) => {
-  res.render('newProject', { pageName: 'Form Project' });
+  res.render('newProject', { pageName: 'New Project' });
 
 };
 

@@ -4,7 +4,7 @@ block content
     .content-main 
         h1 #{pageName}
 
-        form.add-project
+        form.add-project(action="/new-project" method="POST")
             .field 
                 label(for="name") Project Name: 
                 input(type="text" name="name" id="name" placeholder="Project Name")
