@@ -1,12 +1,15 @@
 const Sequelize = require("sequelize");
 
-const sequelize = new Sequelize("uptasknode", "hstrejoluna", "osoregordete", {
-  host: "localhost",
+const db = new Sequelize("uptasknode", "root", "osoregordete", {
+  host: "127.0.0.1",
   port: 3306,
-  dialect: "mysql",
-  operatorsAliases: false,
+  dialect: "mariadb",
+  operatorsAliases: 0,
   define: {
-    timestamps: false,
+    timestamps: 0,
+  },
+  dialectOptions: {
+    socketPath: "/var/run/mysqld/mysqld.sock",
   },
   pool: {
     max: 5,
@@ -16,4 +19,4 @@ const sequelize = new Sequelize("uptasknode", "hstrejoluna", "osoregordete", {
   },
 });
 
-module.exports = sequelize;
+module.exports = db;

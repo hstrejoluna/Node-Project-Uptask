@@ -8,9 +8,13 @@ app.listen(3000, () => console.log("Server started on port 3000"));
 // Create connection to database
 const db = require("./config/db");
 
-db.authenticate()
+
+// Import model 
+require('./models/Projects')
+
+db.sync()
     .then(() => console.log("Database connected"))
-    .catch(err => console.log("Error: " + err));
+    .catch(err => console.log(err));
 
 //Enable Pug
 app.set("view engine", "pug");
