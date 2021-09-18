@@ -22,6 +22,7 @@
   "homepage": "https://github.com/hstrejoluna/Node-Project-Uptask#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "express-validator": "^6.12.1",
     "mariadb": "^2.5.4",
     "mysql2": "^2.3.0",
     "pug": "^3.0.2",
