@@ -1,5 +1,5 @@
 const Projects = require("../models/Projects");
-
+const slug = require('slug');
 exports.projectHome = (req, res) => {
   res.render("index", { pageName: "Projects" });
 };

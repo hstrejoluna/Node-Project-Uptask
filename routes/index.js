@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const projectsController = require("../controllers/projectsController");
 // import express validator
-const { body } = require("express-validator/check");
+const { body } = require("express-validator");
 
 
 
