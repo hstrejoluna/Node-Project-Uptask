@@ -8,8 +8,10 @@ app.listen(3000, () => console.log("Server started on port 3000"));
 //Enable Pug
 app.set("view engine", "pug");
 
+// Load static files
+app.use(express.static("public"));
+
 // Add view folder
 app.set("views", path.join(__dirname, "./views"));
-
 
 app.use("/", routes());

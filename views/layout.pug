@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        link(rel="stylesheet" href="/css/normalize.css")
+        link(rel="stylesheet" href="/css/app.css")
+        title #{pageName}
+    body
+        header.bar
+            h1 Uptask - Project Admin Panel
+            a(href="/logout") Logout
+        main.container 
+            aside.container-projects 
+                .panel.create-project
+                    a(href="new-project" class="button") New Project
+                        span +
+                    .panel.list-projects
+                        h2 Projects
+                        ul#projects.projects 
+                            li 
+                                a(href="#") Ecommerce Design 
+                            li 
+                                a(href="#") New Blog Design 
+                            li
+                                a(href="#") Logo Design
+        block content
+

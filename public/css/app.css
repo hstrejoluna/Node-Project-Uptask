@@ -10,29 +10,29 @@ body {
 }
 /** Login **/
 .login,
-.crear-cuenta {
+.create-account {
     background: #455A64;
 }
-.contenedor-formulario {
+.container-form {
     display: flex;
     justify-content: center;
     flex-direction: column;
     height: 100vh;
 }
-.contenedor-formulario h1 {
+.container-form h1 {
     text-align: center;
     color: white;
 }
-.contenedor-formulario h1  span{
+.container-form h1  span{
     font-weight: 400;
     font-size: 1.2rem;
 }
-.contenedor-formulario p {
+.container-form p {
     text-align: center;
     color: white;
     font-size: 1.4rem;
 }
-.caja-login {
+.box-login {
     background-color: #F2F2F2;
     border: 1px solid #707070;
     max-width: 650px;
@@ -44,19 +44,19 @@ body {
     box-shadow: 0px 25px 35px -17px rgba(0,0,0,0.56);
     padding: 3rem;
 }
-.campo {
+.field {
     display: flex;
     margin-bottom: 1rem;
     align-items: center;
 }
-.campo label {
+.field label {
     flex: 0 0 100px;
     text-align: right;
     padding-right: 1rem;
 }
-.campo input[type="email"],
-.campo input[type="text"],
-.campo input[type="password"] {
+.field input[type="email"],
+.field input[type="text"],
+.field input[type="password"] {
     height: 3rem;
     border: 0;
     flex: 1;
@@ -65,13 +65,13 @@ body {
     padding-left: 2rem;
     color: black;
 }
-.campo.acciones {
+.field.actions {
     justify-content: space-between;
 }
-.enviar {
+.send {
    justify-content: flex-end;
 }
-.boton {
+.button {
     background-color: #FDD835;
     text-align: center;
     transition: background-color .5s ease-in-out;
@@ -86,22 +86,22 @@ body {
     align-items: center;
     line-height: 0;
 }
-.boton span {
+.button span {
     font-size: 2.2rem;
     margin-left: 20px;
 }
 
-.boton:hover {
+.button:hover {
     cursor: pointer;
     background-color: rgb(219, 184, 29)!important;
 }
-.boton.eliminar {
+.button.delete {
     margin-top: 1rem;
     float: right;
     background-color: red!important;
     color: white;
 }
-.campo a {
+.field a {
     color: black;
     text-decoration: none;
 }
@@ -110,7 +110,7 @@ body {
 body.index {
     height: 100vh;
 }
-.barra {
+.bar {
     background-color: #455A64;
     padding: 1rem;
     height: 60px;
@@ -118,17 +118,17 @@ body.index {
     justify-content: space-between;
     align-items: center;
 }
-.barra h1 {
+.bar h1 {
     color: white;
     margin:0;
     font-size: 1.4rem;
 }
-.barra a {
+.bar a {
     color: white;
     text-decoration: none;
 }
 /*** sidebar**/
-.contenedor-proyectos {
+.container-projects {
     height: 100%;
     max-width: 300px;
     background-color: #607D8B;
@@ -151,49 +151,49 @@ body.index {
     margin: 0;
 }
 
-.crear-proyecto i {
+.create-project i {
     margin-left: 1rem;
 }
-.crear-proyecto a {
+.create-project a {
     color: #455A64;
 }
 
-.lista-proyectos ul{
+.list-projects ul{
     list-style: none;
     padding: 1.5rem 0 0 0;
     margin: 0;
 }
-.lista-proyectos ul li {
+.list-projects ul li {
     margin-bottom: 1rem;
 }
-.lista-proyectos ul li a:hover {
+.list-projects ul li a:hover {
     color: #FDD835;
 }
 /** Contenido Principal */
-.contenedor {
+.container {
     display: flex;
     height: calc( 100vh - 60px);
 }
-.contenido-principal {
+.content-main {
     flex: 1;
     padding: 1rem;
     overflow: scroll;
 }
-.contenido-principal h1,
-.contenido-principal h2 {
+.content-main h1,
+.content-main h2 {
     text-align: center;
 }
-.contenido-principal h1 {
+.content-main h1 {
     font-size: 1.8rem;
 }
-.contenido-principal h2 {
+.content-main h2 {
     font-size: 1.4rem;
     margin-top: 2rem;
 }
-.contenido-principal h1 span {
+.content-main h1 span {
     font-weight: 400;
 }
-.agregar-tarea {
+.add-task {
     max-width: 800px;
     width: 90%;
     background-color: #607D8B;
@@ -203,8 +203,8 @@ body.index {
     transition: background-color .5s ease-in-out;
 }
 
-/** Listado Pendientes **/
-.listado-pendientes {
+/** List pending **/
+.list-pending {
     background-color: #F2F2F2;
     max-width: 800px;
     width: 90%;
@@ -212,30 +212,30 @@ body.index {
     padding: 2rem;
     border: 1px solid #999;
 }
-.listado-pendientes ul {
+.list-pending ul {
     padding: 0;
     list-style: none;
 }
-.listado-pendientes ul li {
+.list-pending ul li {
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: 1.4rem;
     border-bottom: 1px solid #d1d1d1;
 }
-.listado-pendientes ul li:last-of-type {
+.list-pending ul li:last-of-type {
     border-bottom: none;
 }
-.listado-pendientes ul li i {
+.list-pending ul li i {
     cursor: pointer;
 }
-.acciones i:last-child{
+.actions i:last-child{
     margin-left: 3rem;
 }
-.completo {
+.complete {
     color: #00B762;
 }
-.alerta {
+.alert {
     padding: .5rem;
     text-align: center;
     font-size: .9rem;
@@ -252,24 +252,24 @@ body.index {
 .error p {
     color: red!important;
 }
-.correcto {
+.good {
     color: green;
     background-color: rgb(201, 245, 201);
     border: 1px solid green;
 }
-.correcto p {
+.good p {
     color: green;
 }
 
 /** Linea de Avance **/
-.barra-avance {
+.bar-advance {
     height: 30px;
     border: 1px solid #999;
     max-width: 800px;
     width: 90%;
     margin: 0 auto;
 }
-.porcentaje {
+.percentage {
     width: 0%;
     height: 100%;
     background-color: #00B762;
@@ -278,7 +278,7 @@ body.index {
     transition: width .3s ease;
 }
 
-form.agregar-proyecto {
+form.add-project {
     max-width: 800px;
     width: 90%;
     background-color: #607D8B;
@@ -287,16 +287,16 @@ form.agregar-proyecto {
     color: white;
     transition: background-color .5s ease-in-out;
 }
-form.agregar-proyecto label,
-form.agregar-proyecto input {
+form.add-project label,
+form.add-project input {
     display: block;
 }
-form.agregar-proyecto label {
+form.add-project label {
     flex: 0 0 150px;
     text-align: right;
     padding-right: 1rem;
 }
-form.agregar-proyecto input[type="text"]{
+form.add-project input[type="text"]{
     width: 100%;
     height: 3rem;
     padding-left: 1rem;
@@ -314,7 +314,7 @@ form input[type="submit"]{
     margin: 0;
 }
 
-.contenedor-acciones {
+.container-actions {
     max-width: 800px;
     margin: 2rem auto 0 auto;
     width: 90%;
@@ -322,14 +322,14 @@ form input[type="submit"]{
     display: flex;
     justify-content: space-between;
 }
-.contenedor-acciones .boton:first-of-type{
+.container-actions .button:first-of-type{
     color: black;
     text-decoration: none;
 }
-.contenedor-acciones .boton.eliminar {
+.container-actions .button.delete {
     color: white;
 }
-.contenedor-acciones .boton {
+.container-actions .button {
     margin: 0;
     text-align: center;
     display: block;
