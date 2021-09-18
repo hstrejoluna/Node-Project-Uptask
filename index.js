@@ -11,6 +11,10 @@ app.set("view engine", "pug");
 // Load static files
 app.use(express.static("public"));
 
+// enable body parser  
+app.use(express.urlencoded({ extended: true }));
+
+
 // Add view folder
 app.set("views", path.join(__dirname, "./views"));
 

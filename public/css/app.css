@@ -243,6 +243,9 @@ body.index {
     max-width: 300px;
     margin: 0 auto 1rem auto;
     text-transform: uppercase;
+    color: red!important;
+    background-color: rgb(255, 201, 201);
+    border: 1px solid red;
 }
 .error {
     color: red!important;
