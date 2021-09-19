@@ -31,3 +31,20 @@ exports.newProject = async (req, res) => {
     res.redirect("/");
   }
 };
+
+exports.projectByUrl = async (req, res) => {
+  const project = await Projects.findOne({
+    where: {
+      url: req.params.url,
+    },
+  });
+
+  if (!project) return next();
+
+  // Render to view
+
+  res.render("tasks", {
+    pageName: "Project Tasks",
+    project,
+  });
+};
