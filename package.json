@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/hstrejoluna/Node-Project-Uptask#readme",
   "dependencies": {
+    "concurrently": "^6.2.1",
     "express": "^4.17.1",
     "express-validator": "^6.12.1",
     "mariadb": "^2.5.4",
