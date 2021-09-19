@@ -4,8 +4,14 @@ block content
     .content-main 
         h1 #{pageName} - #{project.name}
 
+        form.add-task(action=`/projects/${project.url}` method="POST")
+            .field
+                label(for="task") Task: 
+                input.name-task(type="text" name="task" placeholder="Task Name")
+            .field.send 
+                input.button.new-task(type="submit" value="Submit")
+
         .container-actions
-            a(href="/project/edit/${project.id}" class="button") Edit Project 
+            a(href=`/project/edit/${project.id}` class="button") Edit Project 
             button#delete-project(data-project-url=project.url type="button" class="button delete") Delete Project
 
-    

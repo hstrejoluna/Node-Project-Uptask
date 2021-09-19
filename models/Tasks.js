@@ -11,6 +11,6 @@ const Tasks = db.define("tasks", {
   task: Sequelize.STRING(100),
   status: Sequelize.INTEGER,
 });
-Tareas.belongsTo(Projects);
+Tasks.belongsTo(Projects);
 
 module.exports = Tasks;
