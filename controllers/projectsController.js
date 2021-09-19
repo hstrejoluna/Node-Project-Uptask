@@ -8,10 +8,8 @@ exports.projectHome = async (req, res) => {
   });
 };
 
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////
-//Form  
+//Form
 exports.formProject = async (req, res) => {
   const projects = await Projects.findAll();
 
@@ -22,8 +20,6 @@ exports.formProject = async (req, res) => {
 
   res.render("newProject", { pageName: "New Project" });
 };
-
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 // New Project
@@ -50,11 +46,8 @@ exports.newProject = async (req, res) => {
   }
 };
 
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////
-//Project by Url  
-
+//Project by Url
 
 exports.projectByUrl = async (req, res, next) => {
   const projectsPromise = Projects.findAll();
@@ -79,11 +72,8 @@ exports.projectByUrl = async (req, res, next) => {
   });
 };
 
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////
 // Edit Project
-
 
 exports.formEdit = async (req, res) => {
   const projectsPromise = Projects.findAll();
@@ -124,7 +114,6 @@ exports.updateProject = async (req, res) => {
       projects,
     });
   } else {
-    await Projects.create({ name });
-    res.redirect("/");
+    await Projects.update({ name: name }, { where: { id: req.params.id } });
   }
 };
