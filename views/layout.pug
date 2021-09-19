@@ -19,11 +19,10 @@ html(lang="en")
                     .panel.list-projects
                         h2 Projects
                         ul#projects.projects 
-                            li 
-                                a(href="#") Ecommerce Design 
-                            li 
-                                a(href="#") New Blog Design 
-                            li
-                                a(href="#") Logo Design
+                            each project in projects
+                                li
+                                    a(href="#")= project.name
             block content
+
+            pre= vardump(projects)
 

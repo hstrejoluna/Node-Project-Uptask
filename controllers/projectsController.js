@@ -1,7 +1,11 @@
 const Projects = require("../models/Projects");
-const slug = require('slug');
-exports.projectHome = (req, res) => {
-  res.render("index", { pageName: "Projects" });
+
+exports.projectHome = async (req, res) => {
+  const projects = await Projects.findAll();
+  res.render("index", {
+    pageName: "Projects",
+    projects,
+  });
 };
 
 exports.formProject = (req, res) => {
@@ -9,7 +13,7 @@ exports.formProject = (req, res) => {
 };
 
 exports.newProject = async (req, res) => {
-  const { name } = req.body;
+  const { name, url } = req.body;
 
   let errors = [];
 
@@ -23,7 +27,6 @@ exports.newProject = async (req, res) => {
       errors,
     });
   } else {
-    const url = slug(name).toLowerCase();
     const project = await Projects.create({ name, url });
     res.redirect("/");
   }
