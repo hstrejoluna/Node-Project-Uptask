@@ -15,5 +15,14 @@ module.exports = function () {
 
   // List projects
   router.get("/projects/:url", projectsController.projectByUrl);
+
+  // Update project
+  router.get("/project/edit/:id", projectsController.formEdit);
+  router.post(
+    "/new-project/:id",
+    body("name").not().isEmpty().trim().escape(),
+    projectsController.updateProject
+  );
+
   return router;
 };

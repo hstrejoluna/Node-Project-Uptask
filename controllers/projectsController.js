@@ -8,13 +8,30 @@ exports.projectHome = async (req, res) => {
   });
 };
 
-exports.formProject = (req, res) => {
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+//Form  
+exports.formProject = async (req, res) => {
+  const projects = await Projects.findAll();
+
+  res.render("newProject", {
+    pageName: "New Project",
+    projects,
+  });
+
   res.render("newProject", { pageName: "New Project" });
 };
 
-exports.newProject = async (req, res) => {
-  const { name, url } = req.body;
 
+
+////////////////////////////////////////////////////////////////////////////////////////////
+// New Project
+exports.newProject = async (req, res) => {
+  const projects = await Projects.findAll();
+
+  // validate input fullfillment
+  const name = req.body.name;
   let errors = [];
 
   if (!name) {
@@ -25,19 +42,31 @@ exports.newProject = async (req, res) => {
     res.render("newProject", {
       pageName: "New Project",
       errors,
+      projects,
     });
   } else {
-    const project = await Projects.create({ name, url });
+    await Projects.create({ name });
     res.redirect("/");
   }
 };
 
-exports.projectByUrl = async (req, res) => {
-  const project = await Projects.findOne({
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+//Project by Url  
+
+
+exports.projectByUrl = async (req, res, next) => {
+  const projectsPromise = Projects.findAll();
+  const projectPromise = Projects.findOne({
     where: {
       url: req.params.url,
     },
   });
+  const [projects, project] = await Promise.all([
+    projectsPromise,
+    projectPromise,
+  ]);
 
   if (!project) return next();
 
@@ -46,5 +75,56 @@ exports.projectByUrl = async (req, res) => {
   res.render("tasks", {
     pageName: "Project Tasks",
     project,
+    projects,
   });
+};
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+// Edit Project
+
+
+exports.formEdit = async (req, res) => {
+  const projectsPromise = Projects.findAll();
+  const projectPromise = Projects.findOne({
+    where: {
+      id: req.params.id,
+    },
+  });
+  const [projects, project] = await Promise.all([
+    projectsPromise,
+    projectPromise,
+  ]);
+  // Render to view
+  res.render("newProject", {
+    pageName: "Edit Project",
+    projects,
+    project,
+  });
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////
+// Update Project
+exports.updateProject = async (req, res) => {
+  const projects = await Projects.findAll();
+
+  // validate input fullfillment
+  const name = req.body.name;
+  let errors = [];
+
+  if (!name) {
+    errors.push({ text: "Please add a name" });
+  }
+
+  if (errors.length > 0) {
+    res.render("newProject", {
+      pageName: "New Project",
+      errors,
+      projects,
+    });
+  } else {
+    await Projects.create({ name });
+    res.redirect("/");
+  }
 };

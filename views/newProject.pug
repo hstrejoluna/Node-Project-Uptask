@@ -1,16 +1,13 @@
 extends layout
 
+include mixins/createProject
+
 block content
     .content-main 
         h1 #{pageName}
 
         if errors 
             each error in errors
-                .alert= error.text  
+                .alert= error.text 
+        +createProject(project) 
 
-        form.add-project(action="/new-project" method="POST")
-            .field 
-                label(for="name") Project Name: 
-                input(type="text" name="name" id="name" placeholder="Project Name")
-            .field-send 
-                input(type="submit" value="Add" class="button")

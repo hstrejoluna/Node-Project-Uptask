@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    .content-main 
+        h1 #{pageName} - #{project.name}
+
+        pre= vardump(project)
+        .container-actions
+            a(href="newProject" class="button") Edit Project 
+            button#delete-project(type="button" class="button delete") Delete Project
+
+    
