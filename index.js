@@ -13,6 +13,7 @@ const db = require("./config/db");
 
 // Import model
 require("./models/Projects");
+require("./models/Tasks");
 
 db.sync()
   .then(() => console.log("Database connected"))
