@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
+
+// import controller
 const projectsController = require("../controllers/projectsController");
+const tasksController = require("../controllers/tasksController");
+
 // import express validator
 const { body } = require("express-validator");
 
@@ -26,6 +30,9 @@ module.exports = function () {
 
   // Delete project
   router.delete("/projects/:url", projectsController.deleteProject);
+
+  // Tasks
+  router.post("/projects/:url", tasksController.addTask);
 
   return router;
 };
