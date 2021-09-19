@@ -24,5 +24,8 @@ module.exports = function () {
     projectsController.updateProject
   );
 
+  // Delete project
+  router.delete("/projects/:url", projectsController.deleteProject);
+
   return router;
 };
