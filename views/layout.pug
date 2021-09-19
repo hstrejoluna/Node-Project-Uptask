@@ -16,13 +16,14 @@ html(lang="en")
                 .panel.create-project
                     a(href="new-project" class="button") New Project
                         span +
-                    .panel.list-projects
-                        h2 Projects
-                        ul#projects.projects 
+                .panel.list-projects
+                    h2 Projects
+                    ul#projects.projects
+                        if(projects.length) 
                             each project in projects
                                 li
-                                    a(href=`/projects/${project.url}`)= project.name
+                                    a(href=`/projects/${project.url}`)=project.name
             block content
 
-            //pre= vardump(projects)
+        script(src="/dist/bundle.js")
 
