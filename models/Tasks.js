@@ -1,15 +1,15 @@
-const Sequelize = require("sequelize");
-const db = require("../config/db");
-const Projects = require("./Projects");
+const Sequelize = require('sequelize');
+const db = require('../config/db');
+const Projects = require('./Projects');
 
-const Tasks = db.define("tasks", {
-  id: {
-    type: Sequelize.INTEGER(11),
-    primaryKey: true,
-    autoIncrement: true,
-  },
-  task: Sequelize.STRING(100),
-  status: Sequelize.INTEGER,
+const Tasks = db.define('tasks', {
+    id: {
+        type: Sequelize.INTEGER(11),
+        primaryKey: true,
+        autoIncrement: true
+    }, 
+    task: Sequelize.STRING(100),
+    status: Sequelize.INTEGER(1)
 });
 Tasks.belongsTo(Projects);
 
