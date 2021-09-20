@@ -24,6 +24,7 @@
   "homepage": "https://github.com/hstrejoluna/Node-Project-Uptask#readme",
   "dependencies": {
     "axios": "^0.21.4",
+    "bcrypt": "^5.0.1",
     "concurrently": "^6.2.1",
     "express": "^4.17.1",
     "express-validator": "^6.12.1",
