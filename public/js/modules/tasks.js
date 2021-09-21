@@ -34,7 +34,21 @@ if (tasks) {
         cancelButtonText: "No, cancel!",
       }).then((result) => {
         if (result.value) {
-          console.log("Deleting...");
+          const url = `${location.origin}/tasks/${idTask}`;
+
+          // send delete from axios
+          axios.delete(url, { params: { idTask } }).then(function (response) {
+            if (response.status === 200) {
+              taskHTML.parentElement.removeChild(taskHTML);
+
+              Swal.fire(
+                "Deleted!",
+                response.data,
+                "Your task has been de(leted.",
+                "success"
+              );
+            }
+          });
         }
       });
     }
