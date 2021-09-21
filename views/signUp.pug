@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        include partials/header
+    body.login 
+        .container-form
+            h1 Sign Up to UpTask
+
+            form#form.box.box-login(method="POST" action="/signup")
+                .field 
+                    label(for="email") Email: 
+                    input(type="email" name="email" placeholder="youremail@example.com")
+                .field 
+                    label(for="password") Password:
+                    input(type="password" name="password" placeholder="your password")
+                .field.send 
+                    input.button(type="submit" value="Sign Up")
+                .field
+                    a(href="/login") Already have an account?
+
+        script(src="/dist/bundle.js")            
