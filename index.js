@@ -14,6 +14,7 @@ const db = require("./config/db");
 // Import model
 require("./models/Projects");
 require("./models/Tasks");
+require("./models/Users");
 
 db.sync()
   .then(() => console.log("Database connected"))

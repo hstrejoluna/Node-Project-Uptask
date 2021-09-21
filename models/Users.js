@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 const db = require("../config/db");
-const Projects = require("../models/Projects");
+const Projects = require("./Projects");
 const bcrypt = require("bcrypt-nodejs");
 
 const Users = db.define(
@@ -36,20 +36,17 @@ const Users = db.define(
         },
       },
     },
-    activo: {
+    active: {
       type: Sequelize.INTEGER,
       defaultValue: 0,
     },
     token: Sequelize.STRING,
-    expiracion: Sequelize.DATE,
+    expiration: Sequelize.DATE,
   },
   {
     hooks: {
       beforeCreate(user) {
-        user.password = bcrypt.hashSync(
-          user.password,
-          bcrypt.genSaltSync(10)
-        );
+        user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10));
       },
     },
   }
@@ -61,4 +58,3 @@ Users.prototype.verifyPassword = function (password) {
 };
 
 Users.hasMany(Projects);
-    
