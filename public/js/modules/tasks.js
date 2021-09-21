@@ -1,9 +1,12 @@
 import axios from "axios";
 import Swal from "sweetalert2";
+import { updateAdvance } from "../functions/advance";
 
 const tasks = document.querySelector(".list-pending");
 
 if (tasks) {
+  // if cursor is over the check icon
+
   tasks.addEventListener("click", (e) => {
     if (e.target.classList.contains("fa-check-circle")) {
       const icon = e.target;
@@ -15,9 +18,13 @@ if (tasks) {
       axios.patch(url, { idTask }).then(function (response) {
         if (response.status === 200) {
           icon.classList.toggle("complete");
+          updateAdvance();
         }
       });
     }
+
+    ////////////////////////////////////////////////////////////////
+    // if cursor is over trash icon
 
     if (e.target.classList.contains("fa-trash")) {
       const taskHTML = e.target.parentElement.parentElement,
@@ -26,7 +33,7 @@ if (tasks) {
       Swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
-        type: "warning",
+        icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
@@ -47,6 +54,7 @@ if (tasks) {
                 "Your task has been de(leted.",
                 "success"
               );
+              updateAdvance(); 
             }
           });
         }
