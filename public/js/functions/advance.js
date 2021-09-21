@@ -4,7 +4,7 @@ export const updateAdvance = () => {
 
   if (tasks.length) {
     // selects all completed tasks
-    const completedTasks = document.querySelectorAll("li.complete");
+    const completedTasks = document.querySelectorAll("i.complete");
 
     // calculate advance
     const advance = Math.round((completedTasks.length / tasks.length) * 100);

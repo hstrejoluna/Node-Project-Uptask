@@ -32,7 +32,7 @@ exports.newProject = async (req, res) => {
   let errors = [];
 
   if (!name) {
-    errors.push({ 'text': "Please add a name" });
+    errors.push({ text: "Please add a name" });
   }
 
   if (errors.length > 0) {
@@ -76,7 +76,7 @@ exports.projectByUrl = async (req, res, next) => {
     pageName: "Project Tasks",
     project,
     projects,
-    tasks
+    tasks,
   });
 };
 
@@ -123,14 +123,16 @@ exports.updateProject = async (req, res) => {
     });
   } else {
     await Projects.update({ name: name }, { where: { id: req.params.id } });
-    res.redirect("/");  
+    res.redirect("/");
   }
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 // Delete Project
 exports.deleteProject = async (req, res, next) => {
-  const { urlProject } = req.query;
+  const { urlProject, idProject } = req.query;
+
+  await Tasks.destroy({ where: { projectId: idProject } });
   const result = await Projects.destroy({ where: { url: urlProject } });
   if (!result) {
     return next();

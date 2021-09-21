@@ -29,7 +29,7 @@ module.exports = function () {
   );
 
   // Delete project
-  router.delete("/projects/:url", projectsController.deleteProject);
+  router.delete("/projects/:url/:id", projectsController.deleteProject);
 
   // Tasks
   router.post("/projects/:url", tasksController.addTask);
