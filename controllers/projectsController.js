@@ -1,4 +1,5 @@
 const Projects = require("../models/Projects");
+const Tasks = require("../models/Tasks");
 
 exports.projectHome = async (req, res) => {
   const projects = await Projects.findAll();
@@ -31,7 +32,7 @@ exports.newProject = async (req, res) => {
   let errors = [];
 
   if (!name) {
-    errors.push({ text: "Please add a name" });
+    errors.push({ 'text': "Please add a name" });
   }
 
   if (errors.length > 0) {
@@ -61,6 +62,12 @@ exports.projectByUrl = async (req, res, next) => {
     projectPromise,
   ]);
 
+  const tasks = await Tasks.findAll({
+    where: {
+      projectId: project.id,
+    },
+  });
+
   if (!project) return next();
 
   // Render to view
@@ -69,6 +76,7 @@ exports.projectByUrl = async (req, res, next) => {
     pageName: "Project Tasks",
     project,
     projects,
+    tasks
   });
 };
 
@@ -115,6 +123,7 @@ exports.updateProject = async (req, res) => {
     });
   } else {
     await Projects.update({ name: name }, { where: { id: req.params.id } });
+    res.redirect("/");  
   }
 };
 
