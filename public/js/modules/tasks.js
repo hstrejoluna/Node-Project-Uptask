@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const tasks = document.querySelector(".list-pending");
 
@@ -14,6 +15,26 @@ if (tasks) {
       axios.patch(url, { idTask }).then(function (response) {
         if (response.status === 200) {
           icon.classList.toggle("complete");
+        }
+      });
+    }
+
+    if (e.target.classList.contains("fa-trash")) {
+      const taskHTML = e.target.parentElement.parentElement,
+        idTask = taskHTML.dataset.task;
+
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+      }).then((result) => {
+        if (result.value) {
+          console.log("Deleting...");
         }
       });
     }
