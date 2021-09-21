@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const tasks = document.querySelector(".list-pendings");
+const tasks = document.querySelector(".list-pending");
 
 if (tasks) {
   tasks.addEventListener("click", (e) => {
@@ -12,7 +12,9 @@ if (tasks) {
       const url = `${location.origin}/tasks/${idTask}`;
 
       axios.patch(url, { idTask }).then(function (response) {
-        console.log(response);
+        if (response.status === 200) {
+          icon.classList.toggle("complete");
+        }
       });
     }
   });
