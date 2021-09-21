@@ -9,7 +9,7 @@ const tasksController = require("../controllers/tasksController");
 const { body } = require("express-validator");
 
 module.exports = function () {
-  router.get("/", projectsController.projectHome);
+  router.get("/", projectsController.projectsHome);
   router.get("/new-project", projectsController.formProject);
   router.post(
     "/new-project",
@@ -33,6 +33,9 @@ module.exports = function () {
 
   // Tasks
   router.post("/projects/:url", tasksController.addTask);
+
+  // Update task
+  router.patch("/tasks/:id", tasksController.changeStatusTask);
 
   return router;
 };

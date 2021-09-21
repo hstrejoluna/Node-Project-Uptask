@@ -23,7 +23,7 @@ exports.addTask = async (req, res, next) => {
   res.redirect(`/projects/${req.params.url}`);
 };
 
-exports.changestatusTask = async (req, res) => {
+exports.changeStatusTask = async (req, res) => {
   const { id } = req.params;
   const task = await Tasks.findOne({ where: { id } });
 
