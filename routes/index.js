@@ -4,6 +4,7 @@ const router = express.Router();
 // import controller
 const projectsController = require("../controllers/projectsController");
 const tasksController = require("../controllers/tasksController");
+const usersController = require("../controllers/usersController");
 
 // import express validator
 const { body } = require("express-validator");
@@ -16,6 +17,9 @@ module.exports = function () {
     body("name").not().isEmpty().trim().escape(),
     projectsController.newProject
   );
+
+  //////////////////////////////////////////////////////////////////////////////////////////////
+  //Projects
 
   // List projects
   router.get("/projects/:url", projectsController.projectByUrl);
@@ -31,6 +35,8 @@ module.exports = function () {
   // Delete project
   router.delete("/projects/:url/:id", projectsController.deleteProject);
 
+  ////////////////////////////////////////////////////////////////////////////////
+
   // Tasks
   router.post("/projects/:url", tasksController.addTask);
 
@@ -39,6 +45,15 @@ module.exports = function () {
 
   // Delete task
   router.delete("/tasks/:id", tasksController.deleteTask);
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+  // Users
+
+  // Create New Account
+  router.get("/signup", usersController.formSignup);
+
 
   return router;
 };
