@@ -6,10 +6,10 @@ html(lang="en")
         .container-form
             h1 Sign Up to UpTask
 
-            if locals.errors
+            if locals.messages
                 .alerts  
                     each category in Object.keys(locals.messages)
-                        each error in errors[category]
+                        each error in messages[category]
                             .alert(class=`${category}`)
                                 p=error
 

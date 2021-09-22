@@ -22,7 +22,7 @@ exports.signUp = async (req, res) => {
       error.errors.map((error) => error.message)
     );
     res.render("signUp", {
-      errors: req.flash(),
+      messages: req.flash(),
       pageName: "Sign Up to UpTask",
     });
   }
