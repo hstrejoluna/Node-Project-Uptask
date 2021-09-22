@@ -2,7 +2,8 @@ const Projects = require("../models/Projects");
 const Tasks = require("../models/Tasks");
 
 exports.projectsHome = async (req, res) => {
-  const projects = await Projects.findAll();
+  const userId = res.locals.user.id;
+  const projects = await Projects.findAll({ where: { userId } });
   res.render("index", {
     pageName: "Projects",
     projects,
@@ -12,20 +13,20 @@ exports.projectsHome = async (req, res) => {
 ////////////////////////////////////////////////////////////////////////////////////////////
 //Form
 exports.formProject = async (req, res) => {
-  const projects = await Projects.findAll();
+  const userId = res.locals.user.id;
+  const projects = await Projects.findAll({ where: { userId } });
 
   res.render("newProject", {
     pageName: "New Project",
     projects,
   });
-
-  res.render("newProject", { pageName: "New Project" });
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 // New Project
 exports.newProject = async (req, res) => {
-  const projects = await Projects.findAll();
+  const userId = res.locals.user.id;
+  const projects = await Projects.findAll({ where: { userId } });
 
   // validate input fullfillment
   const name = req.body.name;
@@ -42,7 +43,8 @@ exports.newProject = async (req, res) => {
       projects,
     });
   } else {
-    await Projects.create({ name });
+    const userId = res.locals.user.id;
+    await Projects.create({ name, userId });
     res.redirect("/");
   }
 };
@@ -51,10 +53,12 @@ exports.newProject = async (req, res) => {
 //Project by Url
 
 exports.projectByUrl = async (req, res, next) => {
-  const projectsPromise = Projects.findAll();
+  const userId = res.locals.user.id;
+  const projectsPromise = Projects.findAll({ where: { userId } });
   const projectPromise = Projects.findOne({
     where: {
       url: req.params.url,
+      userId,
     },
   });
   const [projects, project] = await Promise.all([
@@ -84,10 +88,12 @@ exports.projectByUrl = async (req, res, next) => {
 // Edit Project
 
 exports.formEdit = async (req, res) => {
-  const projectsPromise = Projects.findAll();
+  const userId = res.locals.user.id;
+  const projectsPromise = Projects.findAll({ where: { userId } });
   const projectPromise = Projects.findOne({
     where: {
       id: req.params.id,
+      userId,
     },
   });
   const [projects, project] = await Promise.all([
@@ -105,7 +111,8 @@ exports.formEdit = async (req, res) => {
 ////////////////////////////////////////////////////////////////////////////////////////////
 // Update Project
 exports.updateProject = async (req, res) => {
-  const projects = await Projects.findAll();
+  const userId = res.locals.user.id;
+  const projects = await Projects.findAll({ where: { userId } });
 
   // validate input fullfillment
   const name = req.body.name;

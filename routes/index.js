@@ -53,7 +53,7 @@ module.exports = function () {
 
   // Create New Account
   router.get("/signup", usersController.formSignup);
-  router.post("/signup", usersController.Signup);
+  router.post("/signup", usersController.signUp);
 
 
 
