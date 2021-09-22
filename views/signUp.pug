@@ -9,10 +9,10 @@ html(lang="en")
             form#form.box.box-login(method="POST" action="/signup")
                 .field 
                     label(for="email") Email: 
-                    input(type="email" name="email" placeholder="youremail@example.com")
+                    input(type="email" name="email" placeholder="youremail@example.com" required)
                 .field 
                     label(for="password") Password:
-                    input(type="password" name="password" placeholder="your password")
+                    input(type="password" name="password" placeholder="your password" required)
                 .field.send 
                     input.button(type="submit" value="Sign Up")
                 .field
