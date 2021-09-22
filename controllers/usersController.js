@@ -17,8 +17,12 @@ exports.signUp = async (req, res) => {
     });
     res.redirect("/login");
   } catch (error) {
+    req.flash(
+      "error",
+      error.errors.map((error) => error.message)
+    );
     res.render("signUp", {
-      error: error.errors,
+      errors: req.flash(),
       pageName: "Sign Up to UpTask",
     });
   }
