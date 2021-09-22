@@ -6,14 +6,20 @@ exports.formSignup = (req, res) => {
   });
 };
 
-exports.signUp = (req, res) => {
+exports.signUp = async (req, res) => {
   //read data
   const { email, password } = req.body;
-  //create new user
-  Users.create({
-    email,
-    password,
-  }).then(() => {
+
+  try {
+    await Users.create({
+      email,
+      password,
+    });
     res.redirect("/login");
-  });
+  } catch (error) {
+    res.render("signUp", {
+      error: error.errors,
+      pageName: "Sign Up to UpTask",
+    });
+  }
 };

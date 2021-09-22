@@ -6,13 +6,17 @@ html(lang="en")
         .container-form
             h1 Sign Up to UpTask
 
+            if errors 
+                each error in errors
+                    p.error.alert= error.message
+
             form#form.box.box-login(method="POST" action="/signup")
                 .field 
                     label(for="email") Email: 
-                    input(type="email" name="email" placeholder="youremail@example.com" required)
+                    input(type="text" name="email" placeholder="youremail@example.com" )
                 .field 
                     label(for="password") Password:
-                    input(type="password" name="password" placeholder="your password" required)
+                    input(type="password" name="password" placeholder="your password" )
                 .field.send 
                     input.button(type="submit" value="Sign Up")
                 .field
