@@ -1,10 +1,10 @@
 const express = require("express");
 const routes = require("./routes");
-const app = express();
 const path = require("path");
 const flash = require("connect-flash");
-
-app.listen(3000, () => console.log("Server started on port 3000"));
+const expressValidator = require("express-validator");
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
 
 // helpers
 const helpers = require("./helpers");
@@ -19,28 +19,45 @@ require("./models/Users");
 
 db.sync()
   .then(() => console.log("Database connected"))
-  .catch((err) => console.log(err));
+  .catch((error) => console.log(error));
 
-// enable body parser
-app.use(express.urlencoded({ extended: true }));
-
-//Enable Pug
-app.set("view engine", "pug");
+const app = express();
 
 // Load static files
 app.use(express.static("public"));
 
-// flash messages
+//Enable Pug
+app.set("view engine", "pug");
+
+// enable body parser
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Add express-validator
+app.use(expressValidator());
+
+// Add view folder
+app.set("views", path.join(__dirname, "./views"));
+
 app.use(flash());
+app.use(cookieParser());
+
+app.use(
+  session({
+    secret: "supersecret",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 
 // Send dump to app
 app.use((req, res, next) => {
   res.locals.vardump = helpers.vardump;
   res.locals.messages = req.flash();
+  res.locals.user = { ...req.user } || null;
   next();
 });
 
-// Add view folder
-app.set("views", path.join(__dirname, "./views"));
-
 app.use("/", routes());
+
+app.listen(3000);

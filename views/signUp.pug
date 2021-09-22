@@ -6,9 +6,12 @@ html(lang="en")
         .container-form
             h1 Sign Up to UpTask
 
-            if errors 
-                each error in errors
-                    p.error.alert= error.message
+            if locals.errors
+                .alerts  
+                    each category in Object.keys(locals.messages)
+                        each error in errors[category]
+                            .alert(class=`${category}`)
+                                p=error
 
             form#form.box.box-login(method="POST" action="/signup")
                 .field 

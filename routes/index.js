@@ -6,9 +6,9 @@ const projectsController = require("../controllers/projectsController");
 const tasksController = require("../controllers/tasksController");
 const usersController = require("../controllers/usersController");
 
-// import express validator
-const { body } = require("express-validator");
 
+// import express validator
+const { body } = require('express-validator/check');
 module.exports = function () {
   router.get("/", projectsController.projectsHome);
   router.get("/new-project", projectsController.formProject);
