@@ -24,6 +24,8 @@ exports.signUp = async (req, res) => {
     res.render("signUp", {
       messages: req.flash(),
       pageName: "Sign Up to UpTask",
+      email,
+      password,
     });
   }
 };
