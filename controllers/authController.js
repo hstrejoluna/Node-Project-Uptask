@@ -51,8 +51,8 @@ exports.sendToken = async (req, res) => {
     resetUrl,
     file: "reset-password",
   });
-
-  res.redirect(`/reset/${user.token}`);
+  req.flash('success', "Check your inbox for instructions")
+  res.redirect("/login");
 };
 
 exports.resetPassword = async (req, res) => {
