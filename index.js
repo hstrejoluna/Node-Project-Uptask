@@ -37,7 +37,6 @@ app.use(expressValidator());
 // Add view folder
 app.set("views", path.join(__dirname, "./views"));
 
-app.use(flash());
 app.use(cookieParser());
 
 app.use(
@@ -48,6 +47,12 @@ app.use(
   })
 );
 
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
+
+
 // Send dump to app
 app.use((req, res, next) => {
   res.locals.vardump = helpers.vardump;
@@ -56,8 +61,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.use("/", routes());
 
