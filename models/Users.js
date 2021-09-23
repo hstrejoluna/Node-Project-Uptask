@@ -41,7 +41,7 @@ const Users = db.define(
       defaultValue: 0,
     },
     token: Sequelize.STRING,
-    expiration: Sequelize.DATE,
+    expiry: Sequelize.DATE,
   },
   {
     hooks: {

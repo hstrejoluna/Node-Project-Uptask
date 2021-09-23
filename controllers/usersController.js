@@ -1,6 +1,4 @@
-const passport = require("passport");
 const Users = require("../models/Users");
-const crypto = require("crypto");
 
 // form signup
 
@@ -50,17 +48,4 @@ exports.formResetpassword = (req, res) => {
   res.render("resetPassword", {
     pageName: "Reset Password",
   });
-};
-
-exports.sendToken = async (req, res) => {
-  const { email } = req.body;
-  const user = await Users.findOne({ email });
-  if (!user) {
-    req.flash("error", "No account with that email exists");
-    return res.redirect("/reset");
-  }
-
-  // User exists
-  const token = crypto.randomBytes(20).toString("hex");
-  const expiry = Date.now() + 3600000; // 1 hour from now
 };
