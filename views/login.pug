@@ -6,6 +6,9 @@ html(lang="en")
         .container-form
             h1 Welcome to the login page
 
+            if error 
+                p.alert.error= error
+
             form#form.box.box-login(method="POST" action="/login")
                 .field 
                     label(for="email") Email: 

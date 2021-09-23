@@ -1,14 +1,14 @@
 const express = require("express");
 const router = express.Router();
+// import express validator
+const { body } = require("express-validator/check");
 
 // import controller
 const projectsController = require("../controllers/projectsController");
 const tasksController = require("../controllers/tasksController");
 const usersController = require("../controllers/usersController");
+const authController = require("../controllers/authController");
 
-
-// import express validator
-const { body } = require('express-validator/check');
 module.exports = function () {
   router.get("/", projectsController.projectsHome);
   router.get("/new-project", projectsController.formProject);
@@ -46,18 +46,17 @@ module.exports = function () {
   // Delete task
   router.delete("/tasks/:id", tasksController.deleteTask);
 
-
-////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////
 
   // Users
 
   // Create New Account (Sign Up)
   router.get("/signup", usersController.formSignup);
   router.post("/signup", usersController.signUp);
- 
+
   // Login
   router.get("/login", usersController.formLogin);
-
+  router.post("/login", authController.authUser);
 
   return router;
 };

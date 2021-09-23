@@ -7,11 +7,12 @@ exports.formSignup = (req, res) => {
 };
 
 exports.formLogin = (req, res) => {
+  const { error } = req.locals.messages;
   res.render("login", {
     pageName: "Login",
+    error,
   });
 };
-
 
 exports.signUp = async (req, res) => {
   //read data
