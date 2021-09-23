@@ -276,12 +276,12 @@ body.index {
 .error p {
   color: red !important;
 }
-.good {
+.success {
   color: green;
   background-color: rgb(201, 245, 201);
   border: 1px solid green;
 }
-.good p {
+.success p {
   color: green;
 }
 

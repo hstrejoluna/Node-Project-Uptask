@@ -8,6 +8,13 @@ html(lang="en")
 
             if error 
                 p.alert.error= error
+            
+            if locals.messages
+                .alerts  
+                    each category in Object.keys(locals.messages)
+                        each error in messages[category]
+                            .alert(class=`${category}`)
+                                p= error
 
             form#form.box.box-login(method="POST" action="/login")
                 .field 

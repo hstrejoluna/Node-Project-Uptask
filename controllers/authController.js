@@ -2,6 +2,7 @@ const passport = require("passport");
 const Users = require("../models/Users");
 const crypto = require("crypto");
 const Sequelize = require("sequelize");
+const bcrypt = require("bcrypt");
 const Op = Sequelize.Op;
 
 exports.authUser = passport.authenticate("local", {
@@ -76,4 +77,14 @@ exports.updatePassword = async (req, res) => {
     req.flash("error", "Not valid");
     req.redirect("/reset");
   }
+  user.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+  user.token = null;
+  user.expiry = null;
+
+  // save new password
+  await user.save();
+
+  req.flash("success", "Password has been reset");
+  res.redirect("/login");
+
 };
