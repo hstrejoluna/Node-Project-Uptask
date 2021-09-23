@@ -44,10 +44,8 @@ exports.signUp = async (req, res) => {
       file: "confirm-account",
     });
 
-
     req.flash("success", "Please check your inbox to confirm your account");
     res.redirect("/login");
-
   } catch (error) {
     req.flash(
       "error",
@@ -66,4 +64,22 @@ exports.formResetpassword = (req, res) => {
   res.render("resetPassword", {
     pageName: "Reset Password",
   });
+};
+
+exports.confirmAccount = async (req, res) => {
+  const user = await Users.findOne({
+    where: {
+      email: req.params.email,
+    },
+  });
+  if (!user) {
+    req.flash("error", "Invalid url");
+    res.redirect("/signup");
+  }
+
+  user.active = 1;
+  await user.save();
+
+  req.flash("success", "Your account has been confirmed and activated");
+  res.redirect("/login");
 };

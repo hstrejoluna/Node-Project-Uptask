@@ -87,6 +87,7 @@ module.exports = function () {
   // Create New Account (Sign Up)
   router.get("/signup", usersController.formSignup);
   router.post("/signup", usersController.signUp);
+  router.get("/confirm/:email", usersController.confirmAccount);
 
   // Login
   router.get("/login", usersController.formLogin);

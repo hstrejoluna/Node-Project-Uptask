@@ -26,7 +26,7 @@ exports.send = async (options) => {
   const html = generateHTML(options.file, options);
   const text = htmlToText.htmlToText(html);
   let mailOptions = {
-    from: "UpTask <no-reply@uptask.com",
+    from: "UpTask <no-reply@uptask.com>",
     to: options.user.email,
     subject: options.subject,
     text,
