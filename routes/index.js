@@ -92,5 +92,8 @@ module.exports = function () {
   router.get("/login", usersController.formLogin);
   router.post("/login", authController.authUser);
 
+  // Logout
+  router.get("/logout", authController.logOut);
+
   return router;
 };
