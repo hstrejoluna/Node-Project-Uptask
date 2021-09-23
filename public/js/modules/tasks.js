@@ -51,10 +51,10 @@ if (tasks) {
               Swal.fire(
                 "Deleted!",
                 response.data,
-                "Your task has been de(leted.",
+                "Your task has been deleted.",
                 "success"
               );
-              updateAdvance(); 
+              updateAdvance();
             }
           });
         }

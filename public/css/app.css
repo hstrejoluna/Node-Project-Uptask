@@ -7,7 +7,7 @@ html {
   box-sizing: inherit;
 }
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   min-height: 100vh;
 }
 /** Login **/
@@ -16,6 +16,8 @@ body {
   background: #455a64;
 }
 .container-form {
+  animation-name: slide-in-fwd-center;
+  animation-duration: 0.4s;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -93,7 +95,7 @@ body {
   color: white;
   border-radius: 2px;
   border: none;
-  transition: background-color 0.5s ease-in-out;
+  transition: background-color 0.8s ease-in-out;
   padding: 2rem;
   text-transform: uppercase;
   font-weight: 900;
@@ -115,7 +117,6 @@ body {
 .button.delete {
   margin-top: 1rem;
   float: right;
-  background-color: red !important;
   color: white;
 }
 .field a {
@@ -174,7 +175,7 @@ body.index {
   margin-left: 1rem;
 }
 .create-project a {
-  color: #455a64;
+  color: #ffffff;
 }
 
 .list-projects ul {
@@ -194,12 +195,15 @@ body.index {
   height: calc(100vh - 60px);
 }
 .content-main {
+  animation-name: slide-in-fwd-center;
+  animation-duration: 0.4s;
   flex: 1;
   padding: 1rem;
   overflow: scroll;
 }
 .content-main h1,
 .content-main h2 {
+  color: #455a64;
   text-align: center;
 }
 .content-main h1 {
@@ -209,10 +213,15 @@ body.index {
   font-size: 1.4rem;
   margin-top: 2rem;
 }
+.content-main img{
+
+}
 .content-main h1 span {
   font-weight: 400;
 }
 .add-task {
+  animation-name: slide-in-fwd-center;
+  animation-duration: 0.4s;
   max-width: 800px;
   width: 90%;
   background: linear-gradient(180deg, #5a5e9a 0%, #484c7a 100%);
@@ -226,6 +235,9 @@ body.index {
 
 /** List pending **/
 .list-pending {
+  animation-name: slide-in-fwd-center;
+  animation-duration: 0.8s;
+  border-radius: 4px;
   background-color: #f2f2f2;
   max-width: 800px;
   width: 90%;
@@ -257,6 +269,8 @@ body.index {
   color: #00b762;
 }
 .alert {
+  animation-name: slide-in-fwd-center;
+  animation-duration: 0.4s;
   padding: 0.5rem;
   text-align: center;
   font-size: 0.9rem;
@@ -312,6 +326,8 @@ body.index {
 }
 
 form.add-project {
+  animation-name: slide-in-fwd-center;
+  animation-duration: 0.4s;
   max-width: 800px;
   width: 90%;
   background: linear-gradient(180deg, #5a5e9a 0%, #484c7a 100%);
@@ -324,6 +340,8 @@ form.add-project {
 }
 form.add-project label,
 form.add-project input {
+  animation-name: slide-in-fwd-center;
+  animation-duration: 0.4s;
   display: block;
 }
 form.add-project label {
@@ -332,6 +350,8 @@ form.add-project label {
   padding-right: 1rem;
 }
 form.add-project input[type="text"] {
+  animation-name: slide-in-fwd-center;
+  animation-duration: 0.4s;
   width: 100%;
   height: 3rem;
   padding-left: 1rem;
@@ -363,6 +383,7 @@ form input[type="submit"] {
 }
 .container-actions .button.delete {
   color: white;
+  background-color: white !important;
 }
 .container-actions .button {
   margin: 0;

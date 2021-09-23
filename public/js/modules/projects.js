@@ -12,7 +12,7 @@ if (btnDelete) {
     Swal.fire({
       title: "Do you want to delete this project?",
       text: "A deleted project can't be recovered",
-      type: "warning",
+      icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
@@ -37,7 +37,7 @@ if (btnDelete) {
           })
           .catch(() => {
             Swal.fire({
-              type: "error",
+              icon: "error",
               title: "Something happens in background :c",
               text: "Project can't be deleted",
             });
