@@ -4,8 +4,9 @@
   "description": "Project UpTask with Node & MVC",
   "main": "index.js",
   "scripts": {
+    "develop": "concurrently \"npm run dev\" \"npm run watch\"",
     "dev": "nodemon ./index.js",
-    "start": "concurrently \"npm run dev\" \"npm run watch\"",
+    "start": "node ./index.js",
     "watch": "webpack -w --mode development"
   },
   "repository": {
@@ -13,6 +14,9 @@
     "url": "git+https://github.com/hstrejoluna/Node-Project-Uptask.git"
   },
   "keywords": [
+    "MySQL",
+    "Backend",
+    "Sequelize",
     "Node",
     "MVC"
   ],
