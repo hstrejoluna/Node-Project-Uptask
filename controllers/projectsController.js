@@ -2,10 +2,9 @@ const Projects = require("../models/Projects");
 const Tasks = require("../models/Tasks");
 const Users = require("../models/Users");
 
-exports.projectsHome = async (req, res) => {
-  
-  console.log("THERE IS RESLOCALUSER HOMS::" + res.locals.user.id);
-  
+
+exports.projectsHome = async (req, res) => {  
+
   const userId = res.locals.user.id;
   const projects = await Projects.findAll({ where: { userId } });
   res.render("index", {
