@@ -52,9 +52,9 @@ app.use(
 
 // Send dump to app
 app.use((req, res, next) => {
+  res.locals.user = { ...req.user } || null;
   res.locals.vardump = helpers.vardump;
   res.locals.messages = req.flash();
-  res.locals.user = { ...req.user } || null;
   next();
 });
 

@@ -51,10 +51,12 @@ module.exports = function () {
 
   // Users
 
-  // Create New Account
+  // Create New Account (Sign Up)
   router.get("/signup", usersController.formSignup);
   router.post("/signup", usersController.signUp);
-
+ 
+  // Login
+  router.get("/login", usersController.formLogin);
 
 
   return router;

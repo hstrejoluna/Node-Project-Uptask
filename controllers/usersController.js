@@ -6,6 +6,13 @@ exports.formSignup = (req, res) => {
   });
 };
 
+exports.formLogin = (req, res) => {
+  res.render("login", {
+    pageName: "Login",
+  });
+};
+
+
 exports.signUp = async (req, res) => {
   //read data
   const { email, password } = req.body;
@@ -21,7 +28,7 @@ exports.signUp = async (req, res) => {
       "error",
       error.errors.map((error) => error.message)
     );
-    res.render("signUp", {
+    res.render("signup", {
       messages: req.flash(),
       pageName: "Sign Up to UpTask",
       email,
