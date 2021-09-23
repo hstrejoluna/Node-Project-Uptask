@@ -5,9 +5,8 @@ const flash = require("connect-flash");
 const expressValidator = require("express-validator");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
-
-// helpers
 const helpers = require("./helpers");
+const passport = require("./config/passport");
 
 // Create connection to database
 const db = require("./config/db");
@@ -30,7 +29,6 @@ app.use(express.static("public"));
 app.set("view engine", "pug");
 
 // enable body parser
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Add express-validator
@@ -57,6 +55,9 @@ app.use((req, res, next) => {
   res.locals.messages = req.flash();
   next();
 });
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use("/", routes());
 
