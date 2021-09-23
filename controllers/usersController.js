@@ -40,13 +40,14 @@ exports.signUp = async (req, res) => {
     await sendEmail.send({
       user,
       subject: "Confirm your UpTask account",
-      resetUrl,
+      confirmUrl,
       file: "confirm-account",
     });
 
 
-    req.flash("success", "Please check your email to confirm your account");
+    req.flash("success", "Please check your inbox to confirm your account");
     res.redirect("/login");
+
   } catch (error) {
     req.flash(
       "error",
