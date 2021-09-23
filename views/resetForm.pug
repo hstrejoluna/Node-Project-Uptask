@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        include partials/header
+    body.login 
+        .container-form 
+            h1= pageName 
+            p Enter your email for a password reset
+            form.box-login(method="POST")
+                .field 
+                    label(for="password") Password: 
+                    input(type="password" name="password" placeholder="New Password")
+                .field.send 
+                    input.button(type="submit" value="Reset password")

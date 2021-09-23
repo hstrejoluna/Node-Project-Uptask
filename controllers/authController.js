@@ -43,3 +43,18 @@ exports.sendToken = async (req, res) => {
 
   res.redirect(`/reset/${user.token}`);
 };
+
+exports.resetPassword = async (req, res) => {
+  const user = await Users.findOne({
+    where: {
+      token: req.params.token,
+    },
+  });
+  if (!user) {
+    req.flash("error", "Token has expired or is invalid");
+    return res.redirect("/reset");
+  }
+  res.render("resetForm", {
+    pageName: "Reset Password",
+  });
+};
