@@ -1,10 +1,14 @@
 const Users = require("../models/Users");
 
+// form signup
+
 exports.formSignup = (req, res) => {
   res.render("signUp", {
     pageName: "Sign Up",
   });
 };
+
+//form login
 
 exports.formLogin = (req, res) => {
   const { error } = res.locals.messages;
@@ -13,6 +17,8 @@ exports.formLogin = (req, res) => {
     error,
   });
 };
+
+//Sign up
 
 exports.signUp = async (req, res) => {
   //read data
@@ -36,4 +42,10 @@ exports.signUp = async (req, res) => {
       password,
     });
   }
+};
+
+exports.formResetpassword = (req, res) => {
+  res.render("resetPassword", {
+    pageName: "Reset Password",
+  });
 };
