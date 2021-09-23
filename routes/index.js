@@ -97,6 +97,7 @@ module.exports = function () {
 
   // Reset Password
   router.get("/reset", usersController.formResetpassword);
+  router.post("/reset", usersController.sendToken);
 
   return router;
 };
