@@ -1,32 +1,33 @@
 const passport = require("passport");
-const Users = require("../models/user");
+const Users = require("../models/Users");
+const crypto = require("crypto");
 
 // form signup
 
-export function formSignup(req, res) {
+exports.formSignup = (req, res) => {
   res.render("signUp", {
     pageName: "Sign Up",
   });
-}
+};
 
 //form login
 
-export function formLogin(req, res) {
+exports.formLogin = (req, res) => {
   const { error } = res.locals.messages;
   res.render("login", {
     pageName: "Login",
     error,
   });
-}
+};
 
 //Sign up
 
-export async function signUp(req, res) {
+exports.signUp = async (req, res) => {
   //read data
   const { email, password } = req.body;
 
   try {
-    await create({
+    await Users.create({
       email,
       password,
     });
@@ -43,13 +44,13 @@ export async function signUp(req, res) {
       password,
     });
   }
-}
+};
 
-export function formResetpassword(req, res) {
+exports.formResetpassword = (req, res) => {
   res.render("resetPassword", {
     pageName: "Reset Password",
   });
-}
+};
 
 exports.sendToken = async (req, res) => {
   const { email } = req.body;
@@ -58,4 +59,8 @@ exports.sendToken = async (req, res) => {
     req.flash("error", "No account with that email exists");
     return res.redirect("/reset");
   }
+
+  // User exists
+  const token = crypto.randomBytes(20).toString("hex");
+  const expiry = Date.now() + 3600000; // 1 hour from now
 };
