@@ -1,6 +1,8 @@
 const passport = require("passport");
 const Users = require("../models/Users");
 const crypto = require("crypto");
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 
 exports.authUser = passport.authenticate("local", {
   successRedirect: "/",
@@ -57,4 +59,21 @@ exports.resetPassword = async (req, res) => {
   res.render("resetForm", {
     pageName: "Reset Password",
   });
+};
+
+exports.updatePassword = async (req, res) => {
+  // verify valid token and expiry
+  const user = await Users.findOne({
+    where: {
+      token: req.params.token,
+      expiry: {
+        [Op.gte]: Date.now(),
+      },
+    },
+  });
+
+  if (!user) {
+    req.flash("error", "Not valid");
+    req.redirect("/reset");
+  }
 };
