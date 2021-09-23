@@ -1,4 +1,5 @@
 const Users = require("../models/Users");
+const sendEmail = require("../handlers/email");
 
 // form signup
 
@@ -29,6 +30,22 @@ exports.signUp = async (req, res) => {
       email,
       password,
     });
+
+    const confirmUrl = `http://${req.headers.host}/confirm/${email}`;
+
+    const user = {
+      email,
+    };
+
+    await sendEmail.send({
+      user,
+      subject: "Confirm your UpTask account",
+      resetUrl,
+      file: "confirm-account",
+    });
+
+
+    req.flash("success", "Please check your email to confirm your account");
     res.redirect("/login");
   } catch (error) {
     req.flash(

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        style 
+            include ./email.css
+    body 
+        h2 Confirm your account
+        p Thank you for signing up for a new account, click this link to continue.
+        a(href=`${confirmUrl}`) Go to confirm account
+        p If you can't access to the link, visit #{confirmUrl}
+        

@@ -45,6 +45,7 @@ exports.sendToken = async (req, res) => {
   // RESET URL
   const resetUrl = `http://${req.headers.host}/reset/${user.token}`;
 
+  // Send email with Token
   await sendEmail.send({
     user,
     subject: "Password reset",
