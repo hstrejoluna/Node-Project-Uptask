@@ -1,13 +1,13 @@
 const Users = require("../models/Users");
 
 exports.formSignup = (req, res) => {
-  res.render("signup", {
+  res.render("signUp", {
     pageName: "Sign Up",
   });
 };
 
 exports.formLogin = (req, res) => {
-  const { error } = req.locals.messages;
+  const { error } = res.locals.messages;
   res.render("login", {
     pageName: "Login",
     error,
@@ -29,7 +29,7 @@ exports.signUp = async (req, res) => {
       "error",
       error.errors.map((error) => error.message)
     );
-    res.render("signup", {
+    res.render("signUp", {
       messages: req.flash(),
       pageName: "Sign Up to UpTask",
       email,

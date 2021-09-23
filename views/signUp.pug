@@ -11,7 +11,7 @@ html(lang="en")
                     each category in Object.keys(locals.messages)
                         each error in messages[category]
                             .alert(class=`${category}`)
-                                p=error
+                                p= error
 
             form#form.box.box-login(method="POST" action="/signup")
                 .field 

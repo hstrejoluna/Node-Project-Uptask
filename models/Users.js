@@ -58,3 +58,5 @@ Users.prototype.verifyPassword = function (password) {
 };
 
 Users.hasMany(Projects);
+
+module.exports = Users;
