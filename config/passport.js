@@ -33,13 +33,13 @@ passport.use(
 );
 
 // serialize user
-passport.serializeUser((user, callBack) => {
-  callBack(null, user);
+passport.serializeUser((user, callback) => {
+  callback(null, user);
 });
 
 // deserialize user
-passport.deserializeUser((user, callBack) => {
-  callBack(null, user);
+passport.deserializeUser((user, callback) => {
+  callback(null, user);
 });
 
 module.exports = passport;
