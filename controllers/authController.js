@@ -34,7 +34,7 @@ exports.sendToken = async (req, res) => {
   const user = await Users.findOne({where: { email }});
   if (!user) {
     req.flash("error", "No account with that email exists");
-    res.redirect("/reset");
+    return res.redirect("/reset");
   }
 
   // User exists
