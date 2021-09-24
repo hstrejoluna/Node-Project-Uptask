@@ -7,7 +7,7 @@
 ***
 ***
 *** To avoid retyping too much info. Do a search and replace for the following:
-*** github_username, repo_name, twitter_handle, email, project_title, project_description
+*** hstrejoluna, Node-Project-Uptask, twitter_handle, hectorsebastiantrejoluna@gmail.com, UpTask NodeJS, Project Uptask with NodeJS and MVC 
 -->
 
 
@@ -20,11 +20,7 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![GPLv2 License][license-shield]][license-url]
+
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -32,21 +28,15 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/hstrejoluna/Node-Project-Uptask">
     <img src="https://i.ibb.co/pZGpSK2/index.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">project_title</h3>
+  <h3 align="center">UpTask NodeJS</h3>
 
   <p align="center">
-    project_description
+    Project Uptask with NodeJS and MVC 
     <br />
-    <a href="https://github.com/hstrejoluna/Node-Project-Uptask"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    ·
-
-    ·
   </p>
 </p>
 
@@ -83,18 +73,22 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+ <a href="https://github.com/hstrejoluna/Node-Project-Uptask">
+    <img src="https://i.ibb.co/x3cLvxh/Screenshot-2021-09-23-20-34-36.png" alt="Logo" >
+  </a>
 
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
+
+
 
 
 ### Built With
 
-* []()
-* []()
-* []()
+* [NodeJS](https://nodejs.org/)
+* [Express](https://expressjs.com/)
+* [Sequelize](https://sequelize.org/)
+* [Axios](https://www.npmjs.com/package/axios)
+* [nodemailer](https://nodemailer.com/)
+* [MariaDB](https://mariadb.org/)
 
 
 
@@ -105,17 +99,15 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
 * npm
-  ```sh
-  npm install npm@latest -g
-  ```
+* mariadb
+
 
 ### Installation
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/hstrejoluna/Node-Project-Uptask.git
    ```
 2. Install NPM packages
    ```sh
@@ -136,7 +128,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/github_username/repo_name/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/hstrejoluna/Node-Project-Uptask/issues) for a list of proposed features (and known issues).
 
 
 
@@ -156,25 +148,17 @@ Contributions are what make the open source community such an amazing place to l
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the GPLv2 License.
 
 
 
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
+Hector Trejo
+ - hectorsebastiantrejoluna@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
-
-
-
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-
-* []()
-* []()
-* []()
+Project Link: [https://github.com/hstrejoluna/Node-Project-Uptask](https://github.com/hstrejoluna/Node-Project-Uptask)
 
 
 
@@ -182,15 +166,15 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/hstrejoluna/repo.svg?style=for-the-badge
+[contributors-url]: https://github.com/hstrejoluna/Node-Project-Uptask/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/hstrejoluna/repo.svg?style=for-the-badge
+[forks-url]: https://github.com/hstrejoluna/Node-Project-Uptask/network/members
+[stars-shield]: https://img.shields.io/github/stars/hstrejoluna/repo.svg?style=for-the-badge
+[stars-url]: https://github.com/hstrejoluna/Node-Project-Uptask/stargazers
+[issues-shield]: https://img.shields.io/github/issues/hstrejoluna/repo.svg?style=for-the-badge
+[issues-url]: https://github.com/hstrejoluna/Node-Project-Uptask/issues
+[license-shield]: https://img.shields.io/github/license/hstrejoluna/repo.svg?style=for-the-badge
+[license-url]: https://github.com/hstrejoluna/Node-Project-Uptask/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/github_username
+[linkedin-url]: https://linkedin.com/in/hstrejoluna
