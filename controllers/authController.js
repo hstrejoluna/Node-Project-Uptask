@@ -19,7 +19,7 @@ exports.userAuthenticated = (req, res, next) => {
     return next();
   }
   // if they aren't redirect them to the home page
-  res.redirect("/login");
+  return res.redirect("/login");
 };
 
 exports.logOut = (req, res) => {
@@ -28,12 +28,13 @@ exports.logOut = (req, res) => {
   });
 };
 
+//generate token if user is valid
 exports.sendToken = async (req, res) => {
   const { email } = req.body;
-  const user = await Users.findOne({ email });
+  const user = await Users.findOne({where: { email }});
   if (!user) {
     req.flash("error", "No account with that email exists");
-    return res.redirect("/reset");
+    res.redirect("/reset");
   }
 
   // User exists
@@ -56,6 +57,8 @@ exports.sendToken = async (req, res) => {
   res.redirect("/login");
 };
 
+
+//validate token
 exports.resetPassword = async (req, res) => {
   const user = await Users.findOne({
     where: {
@@ -64,7 +67,7 @@ exports.resetPassword = async (req, res) => {
   });
   if (!user) {
     req.flash("error", "Token has expired or is invalid");
-    return res.redirect("/reset");
+    res.redirect("/reset");
   }
   res.render("resetForm", {
     pageName: "Reset Password",

@@ -11,9 +11,7 @@ const db = new Sequelize(
     define: {
       timestamps: 0,
     },
-    dialectOptions: {
-      socketPath: "/var/run/mysqld/mysqld.sock",
-    },
+    
     pool: {
       max: 5,
       min: 0,
